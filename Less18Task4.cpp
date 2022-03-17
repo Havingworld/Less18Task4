@@ -20,8 +20,12 @@ evendigits(9 223 372 036 854 775 806, ans);
 #include <iostream>
 using namespace std;
 
-void evendigits(long long num, int ans = 0)
+void evendigits(long long num, int& ans)
 {
+	if (num == 0 && ans == 0) 
+	{
+		ans++;
+	}
 	if (num > 0)
 	{
 		if (num % 2 == 0)
@@ -29,13 +33,15 @@ void evendigits(long long num, int ans = 0)
 		else
 			evendigits(num / 10, ans);
 	}
-	else
-		cout << ans;
+	
+	
 
 } 
 
 int main()
 {
-	evendigits(9223372036854775806);
-
+	int nAnswer = 0;
+	evendigits(0, nAnswer); //9223372036854775806
+	cout << nAnswer;
+	 
 }
